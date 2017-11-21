@@ -1,0 +1,70 @@
+void setup() {
+  
+  pinMode(10,OUTPUT);
+  pinMode(7,OUTPUT);
+  pinMode(8,INPUT);
+}
+
+int sp = 10;      
+int tp = 7;       
+int ep = 8;       
+int c = 523;
+int d = 587;
+int e = 659;
+int f = 698;           
+int g = 784;     
+int a = 880;   
+int h = 988;
+int c2 = 1047;
+
+
+void loop() {     
+ 
+  int notes[] = {c,d,e,f,g,a,h,c2}; 
+  
+  long duration, distance; 
+  
+  digitalWrite(tp,LOW);
+  delayMicroseconds(2);         
+  digitalWrite(tp,HIGH);      
+  delayMicroseconds(5);
+  digitalWrite(tp,LOW);                 
+ 
+  duration = pulseIn(ep, HIGH); 
+  distance = (duration/2)/29.1; 
+  
+  if(distance>4&&distance<42)
+  {
+    if(distance>4&&distance<7)      
+      tone(sp,notes[0],100);
+    
+    else 
+      if(distance>8&&distance<11)
+        tone(sp,notes[1],100);      
+   
+    else
+      if(distance>12&&distance<15)
+        tone(sp,notes[2],100);      
+    
+    else
+      if(distance>16&&distance<19)
+        tone(sp,notes[3],100);      
+    
+    else
+      if(distance>20&&distance<23)
+        tone(sp,notes[4],100);      
+    
+    else
+      if(distance>24&&distance<27)
+        tone(sp,notes[5],100);      
+    
+    else
+      if(distance>28&&distance<31)
+        tone(sp,notes[6],100);      
+    
+    else
+      if(distance>32&&distance<35)
+        tone(sp,notes[7],100);      
+  }
+
+}
